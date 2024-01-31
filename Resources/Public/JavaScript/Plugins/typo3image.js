@@ -402,6 +402,7 @@ function edit(selectedImage, editor, imageAttributes) {
                     fileUid: attributes.fileUid,
                     fileTable: attributes.fileTable,
                     src: attributes.src,
+                    class: attributes.class,
                     height: attributes.height,
                     width: attributes.width,
                     title: attributes.title,
@@ -458,6 +459,7 @@ export default class Typo3Image extends Core.Plugin {
                         fileUid: viewElement.getAttribute('data-htmlarea-file-uid'),
                         fileTable: viewElement.getAttribute('data-htmlarea-file-table') || 'sys_file',
                         src: viewElement.getAttribute('src'),
+                        class: viewElement.getAttribute('class'),
                         width: viewElement.getAttribute('width') || '',
                         height: viewElement.getAttribute('height') || '',
                         alt: viewElement.getAttribute('alt') || '',
@@ -483,6 +485,7 @@ export default class Typo3Image extends Core.Plugin {
                 view: (modelElement, { writer }) => {
                     const attributes= {
                         'src': modelElement.getAttribute('src'),
+                        'class': modelElement.getAttribute('class'),
                         'data-htmlarea-file-uid': modelElement.getAttribute('fileUid'),
                         'data-htmlarea-file-table': modelElement.getAttribute('fileTable'),
                         'width': modelElement.getAttribute('width'),
@@ -540,6 +543,7 @@ export default class Typo3Image extends Core.Plugin {
                         },
                         editor,
                         {
+                            class: selectedElement.getAttribute('class'),
                             width: selectedElement.getAttribute('width'),
                             height: selectedElement.getAttribute('height'),
                             alt: selectedElement.getAttribute('alt'),
@@ -574,6 +578,7 @@ export default class Typo3Image extends Core.Plugin {
                     },
                     editor,
                     {
+                        class: selectedElement.getAttribute('class'),
                         width: modelElement.getAttribute('width'),
                         height: modelElement.getAttribute('height'),
                         alt: modelElement.getAttribute('alt'),
